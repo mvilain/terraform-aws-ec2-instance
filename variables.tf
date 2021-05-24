@@ -204,3 +204,21 @@ variable "num_suffix_format" {
   type        = string
   default     = "-%d"
 }
+
+variable "domain" {
+  type        = string
+  description = "pre-existing managed DNS domain to assign public IP of created instance"
+  default     = "example.com"
+}
+
+variable "inventory" {
+  type        = string
+  description = "pre-existing inventory file used for ansible to append instance info into"
+  default     = "inventory"
+}
+
+variable "user" {
+  type        = string
+  description = "ssh user for access to instance"
+  default     = "ec2-user"
+}
