@@ -104,6 +104,12 @@ resource "aws_instance" "this" {
     cpu_credits = local.is_t_instance_type ? var.cpu_credits : null
   }
 
+# do this in ansible
+#   provisioner "local-exec" {
+#     command = "sudo hostname ${aws_route53_record.this[count.index].name}"
+#   }
+
+  depends_on  = [ aws_route53_record.this ]
 }
 
 # allocate an elastic IP address
