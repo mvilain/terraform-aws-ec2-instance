@@ -152,9 +152,9 @@ resource "aws_route53_record" "this" {
   ttl        = "300"
   records    = [ aws_eip.this[count.index].public_ip ]
 
-  provisioner "local-exec" {
-  command = "echo ${var.name} ansible_ssh_user=${var.user} ansible_host=${aws_eip.this[count.index].public_ip} >> ${var.inventory}"
-  }
+#   provisioner "local-exec" {
+#   command = "echo ${var.name} ansible_ssh_user=${var.user} ansible_host=${aws_eip.this[count.index].public_ip} >> ${var.inventory}"
+#   }
 
   depends_on = [ aws_eip.this ]
 }
