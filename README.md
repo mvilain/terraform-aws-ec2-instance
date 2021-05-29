@@ -78,6 +78,14 @@ data "aws_ami" "ubuntu-xenial" {
 - `network_interface` can't be specified together with `vpc_security_group_ids`, `associate_public_ip_address`, `subnet_id`. See [basic example](https://github.com/terraform-aws-modules/terraform-aws-ec2-instance/tree/master/examples/basic) for details.
 - Changes in `ebs_block_device` argument will be ignored. Use [aws_volume_attachment](https://www.terraform.io/docs/providers/aws/r/volume_attachment.html) resource to attach and detach volumes from AWS EC2 instances. See [this example](https://github.com/terraform-aws-modules/terraform-aws-ec2-instance/tree/master/examples/volume-attachment).
 - One of `subnet_id` or `subnet_ids` is required. If both are provided, the value of `subnet_id` is prepended to the value of `subnet_ids`.
+- additional arguments added in this forked version:
+  - `domain`--string--optional pre-existing Linode-managed DNS domain to assign public IP of created instance [default: "example.com"]
+  - inventory--string--optional pre-existing inventory file to create from a template file [default: "inventory"]
+  - user--string--ssh user to access the instance [default: "ec2-user"]
+
+
+Code was added to this fork to create instances and a cooresponding ansible inventory file using a template file.
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -144,7 +152,7 @@ No modules.
 | <a name="input_volume_tags"></a> [volume\_tags](#input\_volume\_tags) | A mapping of tags to assign to the devices created by the instance at launch time | `map(string)` | `{}` | no |
 | <a name="input_vpc_security_group_ids"></a> [vpc\_security\_group\_ids](#input\_vpc\_security\_group\_ids) | A list of security group IDs to associate with | `list(string)` | `null` | no |
 | <a name="input_domain"></a> [domain](#input\_domain) | pre-existing Linode-managed DNS domain to assign public IP of created instance | `string` | "example.com" | no |
-| <a name="input_inventory"></a> [inventory](#input\_inventory) | pre-existing inventory file used for ansible to append instance info into | `string` | "inventory" | no |
+| <a name="input_ansible_inventory"></a> [ansible_inventory](#input\_ansible_inventory) | ansible inventory file to be created from template file | `string` | "inventory" | no |
 | <a name="input_user"></a> [user](#user) | ssh user to access the instance | `list(string)` | `ec2-user` | no |
 
 
@@ -179,7 +187,9 @@ No modules.
 
 ## Authors
 
-Module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-ec2-instance/graphs/contributors).
+The original module is maintained by [Anton Babenko](https://github.com/antonbabenko) with help from [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-ec2-instance/graphs/contributors).
+
+[Michael Vilain](https://github.com/mvilain) maintains this forked module.
 
 ## License
 
