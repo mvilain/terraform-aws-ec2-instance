@@ -211,14 +211,14 @@ variable "domain" {
   default     = "example.com"
 }
 
-variable "inventory" {
+variable "ansible_inventory" {
   type        = string
-  description = "pre-existing inventory file used for ansible to append instance info into"
+  description = "ansible inventory file to be created by the template file below"
   default     = "inventory"
 }
 
 variable "user" {
   type        = string
-  description = "ssh user for access to instance"
+  description = "ssh user for access to the instance(s)"
   default     = "ec2-user"
 }
