@@ -151,9 +151,11 @@ No modules.
 | <a name="input_user_data_base64"></a> [user\_data\_base64](#input\_user\_data\_base64) | Can be used instead of user\_data to pass base64-encoded binary data directly. Use this instead of user\_data whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. | `string` | `null` | no |
 | <a name="input_volume_tags"></a> [volume\_tags](#input\_volume\_tags) | A mapping of tags to assign to the devices created by the instance at launch time | `map(string)` | `{}` | no |
 | <a name="input_vpc_security_group_ids"></a> [vpc\_security\_group\_ids](#input\_vpc\_security\_group\_ids) | A list of security group IDs to associate with | `list(string)` | `null` | no |
+<!-- 
 | <a name="input_domain"></a> [domain](#input\_domain) | pre-existing Linode-managed DNS domain to assign public IP of created instance | `string` | "example.com" | no |
 | <a name="input_ansible_inventory"></a> [ansible_inventory](#input\_ansible_inventory) | ansible inventory file to be created from template file | `string` | "inventory" | no |
 | <a name="input_user"></a> [user](#user) | ssh user to access the instance | `list(string)` | `ec2-user` | no |
+ -->
 
 
 ## Outputs

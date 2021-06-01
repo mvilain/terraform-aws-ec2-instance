@@ -205,20 +205,20 @@ variable "num_suffix_format" {
   default     = "-%d"
 }
 
-variable "domain" {
-  type        = string
-  description = "pre-existing managed DNS domain to assign public IP of created instance"
-  default     = "example.com"
-}
-
-variable "ansible_inventory" {
-  type        = string
-  description = "ansible inventory file to be created by the template file below"
-  default     = "inventory"
-}
-
-variable "user" {
-  type        = string
-  description = "ssh user for access to the instance(s)"
-  default     = "ec2-user"
-}
+# variable "domain" {
+#   type        = string
+#   description = "pre-existing managed DNS domain to assign public IP of created instance"
+#   default     = "example.com"
+# }
+#
+# variable "ansible_inventory" {
+#   type        = string
+#   description = "ansible inventory file to be created by the template file below"
+#   default     = "inventory"
+# }
+#
+# variable "user" {
+#   type        = string
+#   description = "ssh user for access to the instance(s)"
+#   default     = "ec2-user"
+# }
